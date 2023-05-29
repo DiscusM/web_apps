@@ -25,6 +25,7 @@ Then we build and run our docker with:
 `docker run --name simple-web-server -p 3000:3000 test/simple-web-server`
 
 We can the open our browser and go to localhost:3000
+
 ![Hello world](/images/1.png)
 
 Looks to be working fine.
