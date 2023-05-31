@@ -34,4 +34,14 @@ Lastly lets shutdown the container with command `docker rm -f simple-web-server`
 
 That concludes first assignment.
 
+## FullStackOpen 0
+
+Okay the now we will start the main part of the course: The FullStackOpen net-course. It has total of 13 parts, but our aim is complete the 7 first parts. Without further ado let's head into part one.
+
+## FullStackOpen Part1: React Basics
+
+### CourseData
+
+
+
 
