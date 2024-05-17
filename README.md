@@ -42,6 +42,42 @@ Okay the now we will start the main part of the course: The FullStackOpen net-co
 
 ### CourseData
 
+First real task was to make app to show coursedata in web page. The result was looking like this: 
+
+![CourseData](/images/2.png)
+
+In this first task we learned about components, variables, functions and tables. We also learned that you cannot render whole object, but you should render it's attributes separately.
+
+### Unicafe
+
+Second task of part 1 was to make app that collects feeback. App also show stats for feedback given. 
+
+![Anecdotes](/images/4.png)
+
+We learned about conditional rendering to not show stats if no votes are given yet. Also we learned not to declare component insede another componet.
+
+### Anecdotes
+
+Third assingment of part 1 was to make app that gives random anecdote and you can vote them. App also shows anecdote with most votes. 
+
+![Anecdotes](/images/3.png)
+
+We manged to make this with by knowledge learned from previous tasks. 
+
+## FullStackOpen Part2
+
+### CourseData 2
+
+We started second part of fullstackopen by modifying our coursedata task from part 1. We separated components into their own files and the imported them as modules where they were needed. We also learned how to use mapping. 
+
+![CourseData](/images/5.png)
+
+### PhoneBook
+
+In this phonebook assignment we learned some backend with json server. We can use command `npx json-server --port=3001 --watch db.json` to open server. In code we used effect hook to get all saved contacts from server to the app. We also used css to get custom notification popup when new contact was added to the phonebook.
+
+![CourseData](/images/6.png)
+
 
 
 
