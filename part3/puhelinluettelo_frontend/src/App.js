@@ -22,7 +22,19 @@ const Notification = ({ message }) => {
   )
 }
 
-const PersonForm = ({newName, setNewName, newNumber, setNewNumber, persons, setPersons, setNotificationMessage}) => {
+const Error = ({ error }) => {
+  if (error === null) {
+    return null
+  }
+
+  return (
+    <div className="error">
+      {error}
+    </div>
+  )
+}
+
+const PersonForm = ({newName, setNewName, newNumber, setNewNumber, persons, setPersons, setNotificationMessage, setErrorMessage}) => {
   const handleAdd = (event) => {
     event.preventDefault()
 
@@ -48,7 +60,11 @@ const PersonForm = ({newName, setNewName, newNumber, setNewNumber, persons, setP
         }, 5000)
       })
       .catch(error => {
-        console.error('Error updating person:', error);
+        console.error('Error updating person:', error)
+        setErrorMessage(error.response.data.error)
+        setTimeout(() => {
+            setErrorMessage(null)
+        }, 5000)
       });
     }
 
@@ -70,6 +86,10 @@ const PersonForm = ({newName, setNewName, newNumber, setNewNumber, persons, setP
     })
     .catch(error => {
       console.error('Error adding person:', error)
+      setErrorMessage(error.response.data.error)
+        setTimeout(() => {
+            setErrorMessage(null)
+        }, 5000)
     })
   }
 }
@@ -105,6 +125,7 @@ const App = () => {
   const [newNumber, setNewNumber] = useState('')
   const [search, setSearch] = useState('')
   const [notification, setNotificationMessage] = useState(null)
+  const [errorMessage, setErrorMessage] = useState(null)
 
   useEffect(() => {
     personService
@@ -138,6 +159,10 @@ const App = () => {
     })
     .catch(error => {
       console.error('Error deleting person:', error)
+      setErrorMessage(error.response.data.error)
+        setTimeout(() => {
+            setErrorMessage(null)
+        }, 5000)
     })
   }
   }
@@ -146,9 +171,10 @@ const App = () => {
     <div>
       <h2>Phonebook</h2>
       <Notification message={notification} setNotificationMessage={setNotificationMessage}/>
+      <Error error={errorMessage} setErrorMessage={setErrorMessage}/>
       <Filter search={search} setSearch={setSearch}/>
       <h2>Add new</h2>
-      <PersonForm newName={newName} setNewName={setNewName} newNumber={newNumber} setNewNumber={setNewNumber} persons={persons} setPersons={setPersons} setNotificationMessage={setNotificationMessage}/>
+      <PersonForm newName={newName} setNewName={setNewName} newNumber={newNumber} setNewNumber={setNewNumber} persons={persons} setPersons={setPersons} setNotificationMessage={setNotificationMessage} setErrorMessage={setErrorMessage}/>
       <h2>Numbers</h2>
       <Contacts contacts={filteredList} handleDelete={handleDelete}/>
     </div>
